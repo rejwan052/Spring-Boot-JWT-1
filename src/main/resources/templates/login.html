@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Spring Security Tutorial</title>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bubbler+One|Slabo+27px" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/materialize.css}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script th:src="@{/js/materialize.js}"></script>
+
+</head>
+
+<body>
+
+
+<div class="container">
+    <div class="icon-login">
+        <i class="material-icons logo">person_pin</i>
+    </div>
+    <p>Hi Works</p>
+
+    <form th:action="@{/login}" method="POST" class="form-signin">
+        <p class="header-element" th:text="Login"></p>
+        <br/>
+        <div class="input-field">
+            <input type="text" id="email" name="email"
+                   class="validate " />
+            <label for="email">Email</label>
+        </div>
+            <br/>
+        <div class="input-field">
+            <input type="password"
+                   id="password" name="password" class="validate " />
+            <label for="password">Password</label>
+        </div>
+        <br />
+
+        <div class="alert-msg" align="center" th:if="${param.error}">
+            <p style="font-size: 20px; color: #FF1C19;">Email o password incorrectos, verifique la información</p>
+        </div>
+        <button class="btn waves-effect waves-light blue-grey" id="submitbtn" name="Submit" value="Login" type="Submit" >Login<i class="material-icons right">send</i> </button>
+        <div style="display: none;" id="loading" class="progress">
+            <div class="indeterminate"></div>
+        </div>
+    </form>
+</div>
+<script>
+    $("#submitbtn").click(function () {
+        $("#submitbtn").hide();
+        $("#loading").show();
+        });
+
+</script>
+</body>
+</html>
